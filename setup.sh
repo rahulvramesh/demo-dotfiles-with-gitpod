@@ -17,22 +17,26 @@ if [[ ! $(command -v btop) ]]; then
   # sudo snap switch --global btop $SNAP_VERSION
 fi
 
-# Homebrew installation (check if already installed)
-if [[ ! -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+# # Homebrew installation (check if already installed)
+# if [[ ! -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
+#   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+# fi
+
+# # Homebrew shell environment (if Homebrew is installed)
+# if [[ -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
+#   (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/coder/.bashrc
+# fi
+
+# # Execute Homebrew's shellenv (if enabled)
+# if [[ -f "/home/coder/.bashrc" ]]; then
+#   source /home/coder/.bashrc
+# fi
+
+# # Install Tailscale (if Homebrew is installed)
+# if [[ -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
+#   brew install tailscale
+# fi
+if [[ ! $(command -v tailscale) ]]; then
+  curl -fsSL https://tailscale.com/install.sh | sh
 fi
 
-# Homebrew shell environment (if Homebrew is installed)
-if [[ -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
-  (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/coder/.bashrc
-fi
-
-# Execute Homebrew's shellenv (if enabled)
-if [[ -f "/home/coder/.bashrc" ]]; then
-  source /home/coder/.bashrc
-fi
-
-# Install Tailscale (if Homebrew is installed)
-if [[ -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
-  brew install tailscale
-fi
