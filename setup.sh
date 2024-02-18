@@ -31,3 +31,8 @@ fi
 if [[ -f "/home/coder/.bashrc" ]]; then
   source /home/coder/.bashrc
 fi
+
+# Install Tailscale (if Homebrew is installed)
+if [[ -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
+  brew install tailscale
+fi
