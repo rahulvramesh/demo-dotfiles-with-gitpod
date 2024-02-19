@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # Idempotency and conditional installation
-[[ "$(command -v apt-get)" || "$(command -v apt)" ]] && {
-  sudo apt update
-  if [[ ! $(command -v build-essential) ]]; then
-    sudo apt-get install -y build-essential
-  fi
-}
+# [[ "$(command -v apt-get)" || "$(command -v apt)" ]] && {
+#   sudo apt update
+#   if [[ ! $(command -v build-essential) ]]; then
+#     sudo apt-get install -y build-essential
+#   fi
+# }
 
 # Snap installation (use the appropriate command for your version)
-SNAP_VERSION="latest"
-if [[ ! $(command -v btop) ]]; then
-  # Use snap install based on your desired installation approach
-  sudo snap install --classic "btop=$SNAP_VERSION"
-  # Or use snap switch if you have multiple versions installed
-  # sudo snap switch --global btop $SNAP_VERSION
-fi
+# SNAP_VERSION="latest"
+# if [[ ! $(command -v btop) ]]; then
+#   # Use snap install based on your desired installation approach
+#   sudo snap install --classic "btop=$SNAP_VERSION"
+#   # Or use snap switch if you have multiple versions installed
+#   # sudo snap switch --global btop $SNAP_VERSION
+# fi
 
 # # Homebrew installation (check if already installed)
 # if [[ ! -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
@@ -36,7 +36,7 @@ fi
 # if [[ -d "/home/linuxbrew/.linuxbrew/bin" ]]; then
 #   brew install tailscale
 # fi
-if [[ ! $(command -v tailscale) ]]; then
-  curl -fsSL https://tailscale.com/install.sh | sh
-fi
+# if [[ ! $(command -v tailscale) ]]; then
+#   curl -fsSL https://tailscale.com/install.sh | sh
+# fi
 
